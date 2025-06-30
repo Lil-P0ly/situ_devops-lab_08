@@ -1,4 +1,4 @@
-# situ_devops-lab_08
+# Лаб 8. Приложение и CI/CD-пайплайн
 
 ## Описание Задания
 
@@ -32,4 +32,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret --template={{.data.pass
 ```
 
 ### Пример работы
+1. Работа AgroCD
+![Снимок экрана от 2025-06-30 19-56-41](https://github.com/user-attachments/assets/dd6c26c9-c203-4782-934f-4e19edb4eef4)
 
+2. Обновление `ROLLING-UPDATE` AgroCD
+![Снимок экрана от 2025-06-30 19-56-59](https://github.com/user-attachments/assets/b87cc98c-15bc-4fad-af8f-ddcfaeac0d41)
+
+3. Работа приложения после деплоя
+![Снимок экрана от 2025-06-30 20-05-33](https://github.com/user-attachments/assets/1aab6dfe-88f9-428c-b669-2609bd7a0e37)
