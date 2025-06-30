@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-psu
+  namespace: devops-psu
+  labels:
+    app: devops-psu
+    release-date: RELEASE-DATE # CI пайплайн подставит актуальную дату
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-psu
+  template:
+    metadata:
+      labels:
+        app: devops-psu
+        svc: frontend
+        release-date: RELEASE-DATE # CI подставит актуальную дату
+    spec:
+      containers:
+        - name: devops-psu-server
+          image: permmaxon159/devops-psu:latest # Указать путь к своему DockerHub репо
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-devops
+  namespace: devops-psu
+  labels:
+    app: devops-psu
+spec:
+  type: LoadBalancer
+  selector:
+    app: devops-psu
+    svc: frontend
+  ports:
+    - port: 12345
+      targetPort: 8000
+  externalIPs:
+    - 192.168.1.229
