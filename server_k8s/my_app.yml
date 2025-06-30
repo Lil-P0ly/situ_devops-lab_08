@@ -5,7 +5,7 @@ metadata:
   namespace: devops-psu
   labels:
     app: devops-psu
-    release-date: RELEASE-DATE # CI пайплайн подставит актуальную дату
+    release-date: "1751306051"
 spec:
   replicas: 1
   selector:
@@ -16,7 +16,7 @@ spec:
       labels:
         app: devops-psu
         svc: frontend
-        release-date: RELEASE-DATE # CI подставит актуальную дату
+        release-date: "1751306051"
     spec:
       containers:
         - name: devops-psu-server
